@@ -17,28 +17,30 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    ofColor readSlider = color;
-    int red     = readSlider.r;
-    int green   = readSlider.g;
-    int blue    = readSlider.b;
-    
-    if (red != prevR ||
-        green != prevG ||
-        blue != prevB){
+    if(sendSliderColor){
+        ofColor readSlider = color;
+        int red     = readSlider.r;
+        int green   = readSlider.g;
+        int blue    = readSlider.b;
         
-        ofxOscMessage m;
-        
-        m.setAddress("/led");
-        m.addIntArg(255);
-        m.addIntArg(red);
-        m.addIntArg(green);
-        m.addIntArg(blue);
-        
-        sendMessage(m);
-        
-        prevR = red;
-        prevG = green;
-        prevB = blue;
+        if (red != prevR ||
+            green != prevG ||
+            blue != prevB){
+            
+            ofxOscMessage m;
+            
+            m.setAddress("/led");
+            m.addIntArg(255);
+            m.addIntArg(red);
+            m.addIntArg(green);
+            m.addIntArg(blue);
+            
+            sendMessage(m);
+            
+            prevR = red;
+            prevG = green;
+            prevB = blue;
+        }
     }
 }
 
@@ -53,6 +55,15 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
 
+    switch(key){
+            
+        case ' ':
+            
+            
+            sendSliderColor = !sendSliderColor;
+            
+            break;
+    }
 }
 
 //--------------------------------------------------------------
