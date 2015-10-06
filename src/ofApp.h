@@ -4,6 +4,7 @@
 #include "ofxOsc.h"
 #include "ofxGui.h"
 
+// will have to set for localhost?
 #define HOST "192.168.0.130"
 #define PORT 9998
 
