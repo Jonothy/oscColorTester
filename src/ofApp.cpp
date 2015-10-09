@@ -3,7 +3,10 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    
+    ofxGuiSetDefaultWidth(600);
     gui.setup();
+    
     gui.add(sendSliderColor.setup("Color Slider", false));
     gui.add(color.setup("color",ofColor(100,100,140),ofColor(0,0),ofColor(255,255)));
     
