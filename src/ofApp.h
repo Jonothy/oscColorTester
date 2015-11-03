@@ -4,10 +4,6 @@
 #include "ofxOsc.h"
 #include "ofxGui.h"
 
-// will have to set for localhost?
-#define HOST "192.168.2.2"
-#define PORT 9998
-
 class ofApp : public ofBaseApp{
 
 	public:
@@ -27,6 +23,14 @@ class ofApp : public ofBaseApp{
     
         void sendMessage(ofxOscMessage msg);
     
+        ofXml XML;
+        
+        // xml vars
+        string HOST;
+        string HOST2;
+        int PORT;
+        int PORT2;
+    
         // gui vars
         ofxPanel gui;
         ofxToggle sendSliderColor;
@@ -34,6 +38,7 @@ class ofApp : public ofBaseApp{
         
         // OSC Sender
         ofxOscSender sender;
+        ofxOscSender sender2;
 		
         // other vars
         bool _debug;
