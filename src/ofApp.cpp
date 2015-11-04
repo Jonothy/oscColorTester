@@ -154,4 +154,5 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 void ofApp::sendMessage(ofxOscMessage msg) {
     //    ofLog() << "sending message" << endl;
     sender.sendMessage(msg);
+    sender2.sendMessage(msg);
 }
